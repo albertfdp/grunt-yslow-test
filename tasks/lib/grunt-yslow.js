@@ -9,7 +9,7 @@ exports.init = function(grunt) {
         exec = require('child_process').exec;
 
     if (options.phantomjs.ignore_ssl_errors) {
-      phantomJsCommand += ' --ignore_ssl_errors=' + options.phantomjs.ignore_ssl_errors;
+      phantomJsCommand += ' --ignore-ssl-errors=' + options.phantomjs.ignore_ssl_errors;
     }
 
     // Add options documented in the following web site:
@@ -43,7 +43,7 @@ exports.init = function(grunt) {
     }
 
     command += " " + url;
-    command = phantomJsCommand + command;
+    command = phantomJsCommand + ' ' + command;
     grunt.log.write("Command: " + command);
 
     function puts(error, stdout, stderr) {
